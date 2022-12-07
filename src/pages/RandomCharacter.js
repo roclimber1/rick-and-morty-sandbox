@@ -1,51 +1,51 @@
-// import React from 'react'
+import React from 'react'
 
-// import { ItemWrapper } from '../components/Wrapper'
+import { ItemWrapper } from '../components/Wrapper'
 
-// import CharacterCard from '../components/CharacterCard'
-// import { Layout } from '../components/RoutesLayout'
+import CharacterCard from '../components/CharacterCard'
+import { Layout } from '../components/RoutesLayout'
 
-// import Button from '../components/Button'
+import Button from '../components/Button'
 
-// import { getCharacter, getRandomId } from '../services/api'
+import { getCharacter, getRandomId } from '../services/api'
 
-// import useRequestProcessor from '../hooks/useRequestProcessor'
+import useRequestProcessor from '../hooks/useRequestProcessor'
 
-// const Home = () => {
+const Home = () => {
 
-//     const [id, setId] = React.useState(getRandomId())
+    const [id, setId] = React.useState(getRandomId())
 
-//     const data = useRequestProcessor({ requestData: getCharacter, parameters: id })
+    const data = useRequestProcessor({ requestData: getCharacter, parameters: id })
 
-//     React.useEffect(() => {
+    React.useEffect(() => {
 
-//         setId(getRandomId())
-//     }, [])
+        setId(getRandomId())
+    }, [])
 
-//     const handleClick = () => {
+    const handleClick = () => {
 
-//         setId(getRandomId())
-//     }
+        setId(getRandomId())
+    }
 
-//     return (<React.Fragment>
+    return (<React.Fragment>
 
-//         <Layout>
+        <Layout>
 
-//             <ItemWrapper>
+            <ItemWrapper>
 
-//                 <CharacterCard {...data} />
+                <CharacterCard {...data} />
 
-//             </ItemWrapper>
+            </ItemWrapper>
 
-//             <ItemWrapper>
+            <ItemWrapper>
 
-//                 <Button title={'Update'} onClick={handleClick} />
+                <Button title={'Update'} onClick={handleClick} />
 
-//             </ItemWrapper>
+            </ItemWrapper>
 
-//         </Layout>
+        </Layout>
 
-//     </React.Fragment>)
-// }
+    </React.Fragment>)
+}
 
-// export default Home
+export default Home
