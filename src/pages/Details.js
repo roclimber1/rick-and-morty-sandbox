@@ -15,14 +15,13 @@ import useRequestProcessor from '../hooks/useRequestProcessor'
 
 
 import { getCharacter } from '../services/api'
-import { Layout } from '../components/RoutesLayout'
 
 
 
 
-const Details = (props) => {
+const Details = () => {
 
-    const { id = 1 } = props
+    const { id } = useParams()
 
     const data = useRequestProcessor({ requestData: getCharacter, parameters: id })
 
@@ -30,15 +29,11 @@ const Details = (props) => {
 
     return (<React.Fragment>
 
-        <Layout>
+        <ItemWrapper>
 
-            <ItemWrapper>
+            <CharacterCard {...data} />
 
-                <CharacterCard {...data} />
-
-            </ItemWrapper>
-
-        </Layout>
+        </ItemWrapper>
 
     </React.Fragment>)
 }

@@ -3,6 +3,8 @@
 
 import React from 'react'
 
+import { Outlet } from 'react-router-dom'
+
 
 import Header from './Header'
 import Footer from './Footer'
@@ -28,3 +30,19 @@ export const Layout = (props) => {
 
     </React.Fragment>
 }
+
+
+
+const RoutesLayout = props => {
+
+
+    return <Layout {...props}>
+
+        <Outlet />
+
+    </Layout>
+}
+
+
+
+export default RoutesLayout
