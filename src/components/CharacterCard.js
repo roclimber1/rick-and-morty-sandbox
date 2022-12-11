@@ -28,7 +28,7 @@ const SIZE = {
 const CharacterCard = (props) => {
 
     const { loading = false, data: character, onClick } = props
-    const { name, image, gender, species } = character || {}
+    const { name, image, status, gender, species, type } = character || {}
 
 
     return (<Card onClick={onClick}>
@@ -43,6 +43,10 @@ const CharacterCard = (props) => {
             <InfoBlock field={'gender'} value={gender} />
 
             <InfoBlock field={'species'} value={species} />
+
+            <InfoBlock field={'status'} value={status} />
+
+            {Boolean(type) && <InfoBlock field={'type'} value={type} />}
 
         </React.Fragment>}
     </Card>)

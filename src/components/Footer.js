@@ -36,15 +36,9 @@ const Footer = (props) => {
     const { text = '' } = props
 
 
-    const handleGoBack = () => {
+    const handleGoBack = () => navigate(-1)
 
-        //
-    }
-
-    const handleGoForward = () => {
-
-        //
-    }
+    const handleGoForward = () => navigate(1)
 
 
     return <React.Fragment>

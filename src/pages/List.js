@@ -2,6 +2,7 @@
 
 
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 
 import CharacterCard from '../components/CharacterCard'
@@ -11,7 +12,6 @@ import Button from '../components/Button'
 
 import { ItemWrapper, ListWrapper } from '../components/Wrapper'
 
-import { Layout } from '../components/RoutesLayout'
 
 
 import useRequestProcessor from '../hooks/useRequestProcessor'
@@ -25,28 +25,32 @@ import { getCharactersList } from '../services/api'
 
 const List = () => {
 
+    const navigate = useNavigate()
+
     const [url, setUrl] = React.useState()
 
     const { loading, data } = useRequestProcessor({ requestData: getCharactersList, parameters: url })
 
-    const { results: characters } = data || {}
+    const { info, results: characters } = data || {}
+    const { next, prev } = info || {}
 
 
 
-    const handleNextPage = () => {
+    const handleNextPage = React.useCallback(() => {
 
-        //
-    }
+        next && setUrl(next)
+    }, [next])
 
 
-    const handlePrevPage = () => {
+    const handlePrevPage = React.useCallback(() => {
 
-        //
-    }
+        prev && setUrl(prev)
+    }, [prev])
+
 
     const handleCardClick = (id) => {
 
-        //
+        navigate(`${id}`)
     }
 
 
@@ -64,34 +68,30 @@ const List = () => {
             />)
         })
 
-    }, [characters])
+    }, [characters, navigate])
 
 
 
     return (<React.Fragment>
 
-        <Layout>
+        <ListWrapper>
 
-            <ListWrapper>
+            {loading && <Loader />}
 
-                {loading && <Loader />}
+            {!loading && <React.Fragment>
 
-                {!loading && <React.Fragment>
+                {charactersBlock}
 
-                    {charactersBlock}
+            </React.Fragment>}
 
-                </React.Fragment>}
-
-            </ListWrapper>
+        </ListWrapper>
 
 
-            <ItemWrapper>
-                <Button title={'Prev page'} onClick={handlePrevPage} />
+        <ItemWrapper>
+            {Boolean(prev) && <Button title={'Prev page'} onClick={handlePrevPage} />}
 
-                <Button title={'Next page'} onClick={handleNextPage} />
-            </ItemWrapper>
-
-        </Layout>
+            {Boolean(next) && <Button title={'Next page'} onClick={handleNextPage} />}
+        </ItemWrapper>
 
     </React.Fragment>)
 }
