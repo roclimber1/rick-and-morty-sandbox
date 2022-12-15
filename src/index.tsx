@@ -7,11 +7,11 @@ import "./styles.css";
 
 import type { Root } from "react-dom/client";
 
-const rootElement: HTMLElement = document.getElementById("root");
+const rootElement: HTMLElement = document.getElementById("root") as HTMLElement;
 const root: Root = createRoot(rootElement);
 
 root.render(
-  <StrictMode>
-    <App />
-  </StrictMode>
+    <StrictMode>
+        <App />
+    </StrictMode>
 );
