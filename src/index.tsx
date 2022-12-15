@@ -5,8 +5,10 @@ import App from "./pages/App";
 
 import "./styles.css";
 
-const rootElement = document.getElementById("root");
-const root = createRoot(rootElement);
+import type { Root } from "react-dom/client";
+
+const rootElement: HTMLElement = document.getElementById("root");
+const root: Root = createRoot(rootElement);
 
 root.render(
   <StrictMode>

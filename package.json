@@ -3,14 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "keywords": [],
-  "main": "src/index.js",
+  "main": "src/index.tsx",
   "dependencies": {
     "axios": "1.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-router-dom": "6.4.4",
     "react-scripts": "4.0.0",
-    "styled-components": "5.3.6"
+    "styled-components": "5.3.6",
+    "typescript": "4.9.4"
   },
   "devDependencies": {
     "@babel/runtime": "7.13.8",
@@ -22,10 +23,5 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  "browserslist": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"]
 }
