@@ -17,7 +17,7 @@ import { URLS_LIST } from '../constants/main'
 
 
 
-const App = () => {
+const App = (): JSX.Element => {
 
 
     return <Router>
