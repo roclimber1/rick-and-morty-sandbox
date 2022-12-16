@@ -19,7 +19,7 @@ import { getCharacter } from '../services/api'
 
 
 
-const Details = () => {
+const Details = (): JSX.Element => {
 
     const { id } = useParams()
 
