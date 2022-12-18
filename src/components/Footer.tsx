@@ -28,8 +28,13 @@ const FooterLine = styled(Line)`
 `
 
 
+interface FooterProps {
+    text?: string
+}
 
-const Footer = (props) => {
+
+
+const Footer: React.FC<FooterProps> = (props) => {
 
     const navigate = useNavigate()
 
@@ -57,7 +62,6 @@ const Footer = (props) => {
         <FooterLine>
 
             {text?.toUpperCase()}
-
         </FooterLine>
     </React.Fragment>
 }
