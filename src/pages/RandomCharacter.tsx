@@ -20,7 +20,7 @@ import useRequestProcessor from '../hooks/useRequestProcessor'
 const Home = (): JSX.Element => {
 
 
-    const [id, setId] = React.useState(getRandomId())
+    const [id, setId] = React.useState<number>(getRandomId())
 
     const { loading, data } = useRequestProcessor({ requestData: getCharacter, parameters: id })
 
@@ -31,7 +31,7 @@ const Home = (): JSX.Element => {
     }, [])
 
 
-    const handleClick = () => {
+    const handleClick: React.MouseEventHandler<HTMLButtonElement> = () => {
 
         setId(getRandomId())
     }
@@ -40,16 +40,11 @@ const Home = (): JSX.Element => {
     return (<React.Fragment>
 
         <ItemWrapper>
-
             <CharacterCard loading={loading} data={data} />
-
         </ItemWrapper>
 
-
         <ItemWrapper>
-
             <Button title={'Update'} onClick={handleClick} />
-
         </ItemWrapper>
 
     </React.Fragment>)
