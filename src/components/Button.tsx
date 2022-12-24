@@ -40,8 +40,8 @@ const BaseButton = styled.button`
 
 
 interface ButtonProps {
-    title?: string
-    name?: string
+    title?: string,
+    name?: string,
     onClick: React.MouseEventHandler<HTMLButtonElement>
 }
 
