@@ -17,12 +17,12 @@ import useRequestProcessor from '../hooks/useRequestProcessor'
 
 
 
-const Home = () => {
+const Home = (): JSX.Element => {
 
 
     const [id, setId] = React.useState(getRandomId())
 
-    const data = useRequestProcessor({ requestData: getCharacter, parameters: id })
+    const { loading, data } = useRequestProcessor({ requestData: getCharacter, parameters: id })
 
 
     React.useEffect(() => {
@@ -41,7 +41,7 @@ const Home = () => {
 
         <ItemWrapper>
 
-            <CharacterCard {...data} />
+            <CharacterCard loading={loading} data={data} />
 
         </ItemWrapper>
 

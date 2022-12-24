@@ -29,8 +29,8 @@ const SIZE: ImageSize = {
 
 interface CharacterCardProps {
     loading: boolean
-    data: Partial<Character>
-    onClick: React.MouseEventHandler<HTMLDivElement>
+    data: Partial<Character> | null
+    onClick?: React.MouseEventHandler<HTMLDivElement>
 }
 
 
@@ -41,7 +41,14 @@ const CharacterCard: React.FC<CharacterCardProps> = (props) => {
     const { name, image, status, gender, species, type } = character || {}
 
 
-    return (<Card onClick={onClick}>
+
+    const handleClick: React.MouseEventHandler<HTMLDivElement> = (event) => {
+
+        onClick && onClick(event)
+    }
+
+
+    return (<Card onClick={handleClick}>
 
         {loading && <Loader {...SIZE} />}
 
