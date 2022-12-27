@@ -28,7 +28,7 @@ const SIZE: ImageSize = {
 
 
 interface CharacterCardProps {
-    loading: boolean,
+    loading?: boolean,
     data: Partial<Character> | null,
     onClick?: React.MouseEventHandler<HTMLDivElement>
 }

@@ -23,11 +23,28 @@ import { getCharactersList } from '../services/api'
 
 
 
+import type { NavigateFunction } from 'react-router-dom'
+import type { Character } from '../interfaces/main'
+
+
+
+
+interface ResponseData {
+    results: Array<Character>,
+    info: {
+        next: string,
+        prev: string
+    }
+}
+
+
+
+
 const List = () => {
 
-    const navigate = useNavigate()
+    const navigate: NavigateFunction = useNavigate()
 
-    const [url, setUrl] = React.useState()
+    const [url, setUrl] = React.useState<string>()
 
     const { loading, data } = useRequestProcessor({ requestData: getCharactersList, parameters: url })
 
@@ -36,28 +53,28 @@ const List = () => {
 
 
 
-    const handleNextPage = React.useCallback(() => {
+    const handleNextPage = React.useCallback((): void => {
 
         next && setUrl(next)
     }, [next])
 
 
-    const handlePrevPage = React.useCallback(() => {
+    const handlePrevPage = React.useCallback((): void => {
 
         prev && setUrl(prev)
     }, [prev])
 
 
-    const handleCardClick = (id) => {
+    const handleCardClick = (id: number): void => {
 
         navigate(`${id}`)
     }
 
 
 
-    const charactersBlock = React.useMemo(() => {
+    const charactersBlock = React.useMemo<Array<JSX.Element>>(() => {
 
-        return (characters || []).map((item) => {
+        return (characters || []).map((item: Character) => {
 
             const { id } = item
 
