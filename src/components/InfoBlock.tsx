@@ -18,7 +18,7 @@ const Info = styled.section`
 
 
 interface InfoCenteredProps {
-    fontSize?: number | null
+    fontSize?: number | null,
     centered?: boolean
 }
 
@@ -30,7 +30,7 @@ const InfoCentered = styled(Info)`
 
 
 interface InfoBlockProps extends InfoCenteredProps {
-    field?: string
+    field?: string,
     value?: string
 }
 

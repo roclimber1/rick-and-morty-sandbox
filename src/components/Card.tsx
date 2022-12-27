@@ -40,7 +40,7 @@ const BaseCard = styled.section`
 
 
 interface CardProps {
-    children?: React.ReactNode
+    children?: React.ReactNode,
     onClick: React.MouseEventHandler<HTMLElement>
 }
 
