@@ -44,9 +44,9 @@ const List = () => {
 
     const navigate: NavigateFunction = useNavigate()
 
-    const [url, setUrl] = React.useState<string>()
+    const [url, setUrl] = React.useState<string>('')
 
-    const { loading, data } = useRequestProcessor({ requestData: getCharactersList, parameters: url })
+    const { loading, data } = useRequestProcessor<ResponseData, string>({ requestData: getCharactersList, parameters: url })
 
     const { info, results: characters } = data || {}
     const { next, prev } = info || {}
