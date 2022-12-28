@@ -17,12 +17,18 @@ import useRequestProcessor from '../hooks/useRequestProcessor'
 
 
 
+import type { Character } from '../interfaces/main'
+
+
+
+
+
 const Home = (): JSX.Element => {
 
 
     const [id, setId] = React.useState<number>(getRandomId())
 
-    const { loading, data } = useRequestProcessor({ requestData: getCharacter, parameters: id })
+    const { loading, data } = useRequestProcessor<Character, number>({ requestData: getCharacter, parameters: id })
 
 
     React.useEffect(() => {

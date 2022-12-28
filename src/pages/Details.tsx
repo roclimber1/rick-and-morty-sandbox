@@ -19,11 +19,17 @@ import { getCharacter } from '../services/api'
 
 
 
+import type { Character } from '../interfaces/main'
+
+
+
+
+
 const Details = (): JSX.Element => {
 
     const { id } = useParams()
 
-    const data = useRequestProcessor({ requestData: getCharacter, parameters: id })
+    const data = useRequestProcessor<Character, number>({ requestData: getCharacter, parameters: Number(id ?? '1') })
 
 
 
